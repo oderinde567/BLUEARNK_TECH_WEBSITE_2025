@@ -1,193 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Bluearnk Technologies</title>
 
-  <!-- Tailwind CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-
-  <!-- Futuristic Custom Styles -->
-  <style>
-    /* Logo Float + Glow */
-    .logo-glow {
-      --float: 0px;
-      --scale: 1;
-      transform: translateY(var(--float)) scale(var(--scale));
-      filter: drop-shadow(0 0 8px rgba(34, 211, 238, 0.7));
-      transition: transform 0.35s ease, filter 0.35s ease;
-      animation: logo-float 3s ease-in-out infinite;
-    }
-    .logo-glow:hover {
-      --scale: 1.15;
-      filter: drop-shadow(0 0 18px rgba(34, 211, 238, 1));
-    }
-    @keyframes logo-float {
-      0% { --float: 0px; }
-      50% { --float: -10px; }
-      100% { --float: 0px; }
-    }
-
-    /* Glowing Text */
-    .glow-text {
-      text-shadow:
-        0 0 6px rgba(34, 211, 238, 0.6),
-        0 0 12px rgba(34, 211, 238, 0.6),
-        0 0 25px rgba(34, 211, 238, 0.8);
-      animation: glow 2.2s ease-in-out infinite alternate;
-    }
-    @keyframes glow {
-      from {
-        text-shadow:
-          0 0 6px rgba(34, 211, 238, 0.5),
-          0 0 12px rgba(34, 211, 238, 0.5);
-      }
-      to {
-        text-shadow:
-          0 0 12px rgba(34, 211, 238, 1),
-          0 0 30px rgba(34, 211, 238, 1),
-          0 0 60px rgba(34, 211, 238, 0.9);
-      }
-    }
-  </style>
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
 </head>
-
-<body class="text-gray-100 font-sans
-             bg-[url('assets/images/futuristic-bg.jpg')]
-             bg-cover bg-center bg-fixed">
-
-  <!-- Global Dark Overlay -->
-  <div class="fixed inset-0 bg-black/80 -z-10"></div>
+<body>
 
   <!-- NAVBAR -->
-  <nav class="fixed w-full z-50 bg-black/60 backdrop-blur-md border-b border-cyan-500/20">
-    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+  <nav>
+    <div class="nav-container">
 
-      <!-- Logo + Brand -->
-      <div class="flex items-center gap-3">
-        <img src="assets/images/logo.png"
-             alt="Bluearnk Logo"
-             class="h-12 w-auto logo-glow">
-        <h1 class="text-2xl font-bold text-cyan-400 tracking-wide glow-text">
-          Bluearnk Technologies
-        </h1>
+      <!-- LOGO + BRAND -->
+      <div class="brand">
+        <img
+          src="images/BluearnkTechB.jpg"
+          alt="Bluearnk Technologies Logo"
+          class="nav-logo logo-glow"
+        >
+        <span class="brand-name">Bluearnk Technologies</span>
       </div>
 
-      <!-- Desktop Links -->
-      <ul class="hidden md:flex space-x-8">
-        <li><a href="#about" class="hover:text-cyan-400 transition">About</a></li>
-        <li><a href="#services" class="hover:text-cyan-400 transition">Services</a></li>
-        <li><a href="#contact" class="hover:text-cyan-400 transition">Contact</a></li>
-      </ul>
-
-      <!-- Mobile Button -->
-      <div class="md:hidden">
-        <button id="menu-btn">
-          <svg class="w-8 h-8 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-              d="M4 6h16M4 12h16M4 18h16"/>
-          </svg>
-        </button>
+      <!-- NAV LINKS -->
+      <div class="nav-links" id="navLinks">
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#contact">Contact</a>
       </div>
+
+      <!-- MOBILE MENU -->
+      <div class="menu-btn" id="menuBtn">☰</div>
+
     </div>
   </nav>
 
-  <!-- HERO -->
-  <section class="min-h-screen flex items-center justify-center text-center px-6 relative">
-    <div class="relative z-10">
-      <h1 class="text-5xl md:text-7xl font-extrabold text-cyan-400 glow-text">
-        Powering Tomorrow’s Technology
-      </h1>
-      <p class="mt-6 max-w-2xl mx-auto text-gray-300">
-        Bluearnk Technologies delivers cutting-edge computer solutions, repairs,
-        networking, and software services for the modern world.
-      </p>
-      <div class="mt-8">
-        <a href="#services"
-           class="bg-cyan-500 px-6 py-3 rounded-lg hover:bg-cyan-400 transition">
-          Explore Services
-        </a>
-      </div>
-    </div>
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <h1>Powering Tomorrow’s Technology</h1>
+    <p>Clean HTML, CSS & JavaScript — no frameworks.</p>
   </section>
 
-  <!-- ABOUT -->
-  <section id="about" class="py-24 px-6 bg-black/60">
-    <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12">
-      <div>
-        <h2 class="text-3xl font-bold text-cyan-400 glow-text">Who We Are</h2>
-        <p class="mt-6 text-gray-300">
-          Bluearnk Technologies specializes in computer sales, repairs,
-          networking solutions, and custom software services.
-        </p>
-      </div>
-      <div class="bg-black/50 p-6 rounded-lg border border-cyan-500">
-        <h3 class="text-xl font-semibold text-cyan-400">Our Mission</h3>
-        <p class="mt-4 text-gray-300">
-          To empower individuals and businesses with reliable,
-          secure, and future-ready technology solutions.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- SERVICES -->
-  <section id="services" class="py-24 px-6">
-    <div class="max-w-7xl mx-auto text-center">
-      <h2 class="text-3xl font-bold text-cyan-400 glow-text">Our Services</h2>
-
-      <div class="mt-16 grid md:grid-cols-3 gap-10">
-        <div class="bg-gray-900/80 p-6 rounded-lg border border-cyan-500 hover:shadow-cyan-500/50 hover:shadow-lg transition">
-          <h3 class="font-semibold text-lg">Computer Sales & Repairs</h3>
-          <p class="mt-2 text-gray-400">
-            New systems, upgrades, diagnostics, and professional repairs.
-          </p>
-        </div>
-
-        <div class="bg-gray-900/80 p-6 rounded-lg border border-cyan-500 hover:shadow-cyan-500/50 hover:shadow-lg transition">
-          <h3 class="font-semibold text-lg">Networking Solutions</h3>
-          <p class="mt-2 text-gray-400">
-            LAN/WAN setup, configuration, security, and maintenance.
-          </p>
-        </div>
-
-        <div class="bg-gray-900/80 p-6 rounded-lg border border-cyan-500 hover:shadow-cyan-500/50 hover:shadow-lg transition">
-          <h3 class="font-semibold text-lg">Software Solutions</h3>
-          <p class="mt-2 text-gray-400">
-            Custom applications, system installations, and support.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section id="contact" class="py-24 px-6 bg-black/60">
-    <div class="max-w-4xl mx-auto text-center">
-      <h2 class="text-3xl font-bold text-cyan-400 glow-text">Contact Us</h2>
-
-      <form class="mt-12 grid gap-6">
-        <input type="text" placeholder="Your Name"
-          class="p-3 rounded-lg bg-gray-900 border border-cyan-500 focus:outline-none">
-        <input type="email" placeholder="Your Email"
-          class="p-3 rounded-lg bg-gray-900 border border-cyan-500 focus:outline-none">
-        <textarea rows="5" placeholder="Your Message"
-          class="p-3 rounded-lg bg-gray-900 border border-cyan-500 focus:outline-none"></textarea>
-
-        <button class="bg-cyan-500 px-6 py-3 rounded-lg hover:bg-cyan-400 transition">
-          Send Message
-        </button>
-      </form>
-      <p id="status" class="mt-4 text-green-400"></p>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer class="py-8 text-center text-gray-400 border-t border-gray-800">
-    © 2026 Bluearnk Technologies. All Rights Reserved.
-  </footer>
-
-  <script src="js/main.js"></script>
+  <!-- JAVASCRIPT -->
+  <script src="script.js"></script>
 </body>
 </html>

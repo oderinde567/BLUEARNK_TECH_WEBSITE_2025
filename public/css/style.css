@@ -1,81 +1,139 @@
-/* ================================
-   LOGO – FLOAT + GLOW (NO CONFLICT)
-================================ */
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
 
+body {
+  background: #020617;
+  color: #e5e7eb;
+  min-height: 200vh;
+}
+
+/* ================= NAVBAR ================= */
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(34, 211, 238, 0.2);
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 14px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* ========== LOGO AREA ========== */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.nav-logo {
+  height: 48px;
+  width: auto;
+  object-fit: contain;
+}
+
+/* Glow + Float */
 .logo-glow {
-  /* Animation variables */
   --float: 0px;
   --scale: 1;
 
-  /* Combined transform (IMPORTANT) */
   transform: translateY(var(--float)) scale(var(--scale));
-
-  /* Glow */
   filter: drop-shadow(0 0 8px rgba(34, 211, 238, 0.7));
-
-  /* Smooth transitions */
-  transition: 
-    transform 0.35s ease,
-    filter 0.35s ease;
-
-  /* Floating animation */
+  transition: transform 0.3s ease, filter 0.3s ease;
   animation: logo-float 3s ease-in-out infinite;
 }
 
-/* Hover effect */
 .logo-glow:hover {
-  --scale: 1.15;
-  filter: drop-shadow(0 0 18px rgba(34, 211, 238, 1));
+  --scale: 1.1;
+  filter: drop-shadow(0 0 16px rgba(34, 211, 238, 1));
 }
 
-/* Floating keyframes */
 @keyframes logo-float {
-  0%   { --float: 0px; }
-  50%  { --float: -10px; }
+  0% { --float: 0px; }
+  50% { --float: -6px; }
   100% { --float: 0px; }
 }
 
-/* ================================
-   GLOWING TEXT (NO FLOATING)
-================================ */
-
-.glow-text {
+.brand-name {
+  font-size: 1.3rem;
+  font-weight: bold;
   color: #22d3ee;
-  text-shadow:
-    0 0 6px rgba(34, 211, 238, 0.6),
-    0 0 12px rgba(34, 211, 238, 0.6),
-    0 0 20px rgba(34, 211, 238, 0.6);
-
-  animation: text-glow 2.2s ease-in-out infinite alternate;
+  text-shadow: 0 0 12px rgba(34, 211, 238, 0.8);
 }
 
-/* Text glow pulse */
-@keyframes text-glow {
-  0% {
-    text-shadow:
-      0 0 6px rgba(34, 211, 238, 0.5),
-      0 0 12px rgba(34, 211, 238, 0.5);
+/* ========== NAV LINKS ========== */
+.nav-links {
+  display: flex;
+  gap: 30px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #e5e7eb;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #22d3ee;
+}
+
+/* ========== MOBILE MENU ========== */
+.menu-btn {
+  display: none;
+  font-size: 28px;
+  cursor: pointer;
+  color: #22d3ee;
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    position: absolute;
+    top: 70px;
+    right: 0;
+    background: rgba(0, 0, 0, 0.9);
+    width: 100%;
+    flex-direction: column;
+    text-align: center;
+    padding: 20px 0;
+    display: none;
   }
-  100% {
-    text-shadow:
-      0 0 10px rgba(34, 211, 238, 1),
-      0 0 25px rgba(34, 211, 238, 1),
-      0 0 45px rgba(34, 211, 238, 0.9);
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .menu-btn {
+    display: block;
   }
 }
 
-/* ================================
-   OPTIONAL: FUTURISTIC CARD FLOAT
-================================ */
-
-.float-card {
-  --float: 0px;
-  transform: translateY(var(--float));
-  animation: card-float 4s ease-in-out infinite;
+/* ========== HERO SECTION ========== */
+.hero {
+  margin-top: 120px;
+  text-align: center;
+  padding: 40px;
 }
 
-@keyframes card-float {
-  0%   { --float: 0px; }
-  50%  { --float: -6px; }
-  100% { --float: 0px; }
+.hero h1 {
+  font-size: 3rem;
+  color: #22d3ee;
+  text-shadow: 0 0 18px rgba(34, 211, 238, 0.9);
+}
+
+.hero p {
+  margin-top: 16px;
+  color: #9ca3af;
 }
