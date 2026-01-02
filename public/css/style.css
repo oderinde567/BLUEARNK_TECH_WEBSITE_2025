@@ -1,30 +1,81 @@
-<style>
-  /* Logo Glow */
-  .logo-glow {
-    filter: drop-shadow(0 0 8px rgba(34, 211, 238, 0.7));
-    transition: transform 0.3s ease, filter 0.3s ease;
-    animation: float 3s ease-in-out infinite;
-  }
-  .logo-glow:hover {
-    transform: scale(1.15);
-    filter: drop-shadow(0 0 15px rgba(34, 211, 238, 1));
-  }
+/* ================================
+   LOGO – FLOAT + GLOW (NO CONFLICT)
+================================ */
 
-  /* Hero Text Glow + Floating Animation */
-  .glow-text {
-    text-shadow: 0 0 8px rgba(34, 211, 238, 0.7);
-    animation: glow 2s ease-in-out infinite alternate, float 3s ease-in-out infinite;
-  }
+.logo-glow {
+  /* Animation variables */
+  --float: 0px;
+  --scale: 1;
 
-  @keyframes glow {
-    0% { text-shadow: 0 0 5px rgba(34, 211, 238, 0.6); }
-    50% { text-shadow: 0 0 15px rgba(34, 211, 238, 1); }
-    100% { text-shadow: 0 0 5px rgba(34, 211, 238, 0.6); }
-  }
+  /* Combined transform (IMPORTANT) */
+  transform: translateY(var(--float)) scale(var(--scale));
 
-  @keyframes float {
-    0% { transform: translateY(0px); }
-    50% { transform: translateY(-8px); }
-    100% { transform: translateY(0px); }
+  /* Glow */
+  filter: drop-shadow(0 0 8px rgba(34, 211, 238, 0.7));
+
+  /* Smooth transitions */
+  transition: 
+    transform 0.35s ease,
+    filter 0.35s ease;
+
+  /* Floating animation */
+  animation: logo-float 3s ease-in-out infinite;
+}
+
+/* Hover effect */
+.logo-glow:hover {
+  --scale: 1.15;
+  filter: drop-shadow(0 0 18px rgba(34, 211, 238, 1));
+}
+
+/* Floating keyframes */
+@keyframes logo-float {
+  0%   { --float: 0px; }
+  50%  { --float: -10px; }
+  100% { --float: 0px; }
+}
+
+/* ================================
+   GLOWING TEXT (NO FLOATING)
+================================ */
+
+.glow-text {
+  color: #22d3ee;
+  text-shadow:
+    0 0 6px rgba(34, 211, 238, 0.6),
+    0 0 12px rgba(34, 211, 238, 0.6),
+    0 0 20px rgba(34, 211, 238, 0.6);
+
+  animation: text-glow 2.2s ease-in-out infinite alternate;
+}
+
+/* Text glow pulse */
+@keyframes text-glow {
+  0% {
+    text-shadow:
+      0 0 6px rgba(34, 211, 238, 0.5),
+      0 0 12px rgba(34, 211, 238, 0.5);
   }
-</style>
+  100% {
+    text-shadow:
+      0 0 10px rgba(34, 211, 238, 1),
+      0 0 25px rgba(34, 211, 238, 1),
+      0 0 45px rgba(34, 211, 238, 0.9);
+  }
+}
+
+/* ================================
+   OPTIONAL: FUTURISTIC CARD FLOAT
+================================ */
+
+.float-card {
+  --float: 0px;
+  transform: translateY(var(--float));
+  animation: card-float 4s ease-in-out infinite;
+}
+
+@keyframes card-float {
+  0%   { --float: 0px; }
+  50%  { --float: -6px; }
+  100% { --float: 0px; }
+}
